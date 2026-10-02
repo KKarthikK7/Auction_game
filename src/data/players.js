@@ -18,11 +18,13 @@ export const team = {
 export const roles = ['All', 'Batter', 'Wicketkeeper', 'All-rounder', 'Bowler']
 
 // image: optional photo in public/players/ (cards fall back to initials without one).
+const photo = (file) => `${import.meta.env.BASE_URL}players/${file}`
+
 // reserve: true puts a player in the "Extra squad" section instead of the playing XI.
 export const players = [
   {
     name: 'Abhishek Sharma',
-    image: '/players/abhishek-sharma.png',
+    image: photo('abhishek-sharma.png'),
     role: 'Batter',
     country: 'India',
     flag: '🇮🇳',
@@ -34,7 +36,7 @@ export const players = [
   },
   {
     name: 'Prabhsimran Singh',
-    image: '/players/prabhsimran-singh.png',
+    image: photo('prabhsimran-singh.png'),
     role: 'Wicketkeeper',
     country: 'India',
     flag: '🇮🇳',
@@ -45,7 +47,7 @@ export const players = [
   },
   {
     name: 'Ayush Mhatre',
-    image: '/players/ayush-mhatre.avif',
+    image: photo('ayush-mhatre.avif'),
     role: 'Batter',
     country: 'India',
     flag: '🇮🇳',
@@ -56,7 +58,7 @@ export const players = [
   },
   {
     name: 'Josh Inglis',
-    image: '/players/josh-inglis.png',
+    image: photo('josh-inglis.png'),
     role: 'Wicketkeeper',
     country: 'Australia',
     flag: '🇦🇺',
@@ -67,7 +69,7 @@ export const players = [
   },
   {
     name: 'Rajat Patidar',
-    image: '/players/rajat-patidar.avif',
+    image: photo('rajat-patidar.avif'),
     role: 'Batter',
     country: 'India',
     flag: '🇮🇳',
@@ -78,7 +80,7 @@ export const players = [
   },
   {
     name: 'Sunil Narine',
-    image: '/players/sunil-narine.avif',
+    image: photo('sunil-narine.avif'),
     role: 'All-rounder',
     country: 'West Indies',
     flag: '🇹🇹',
@@ -89,7 +91,7 @@ export const players = [
   },
   {
     name: 'Pat Cummins',
-    image: '/players/pat-cummins.png',
+    image: photo('pat-cummins.png'),
     role: 'Bowler',
     country: 'Australia',
     flag: '🇦🇺',
@@ -102,7 +104,7 @@ export const players = [
   },
   {
     name: 'Bhuvneshwar Kumar',
-    image: '/players/bhuvneshwar-kumar.png',
+    image: photo('bhuvneshwar-kumar.png'),
     role: 'Bowler',
     country: 'India',
     flag: '🇮🇳',
@@ -113,7 +115,7 @@ export const players = [
   },
   {
     name: 'Jasprit Bumrah',
-    image: '/players/jasprit-bumrah.avif',
+    image: photo('jasprit-bumrah.avif'),
     role: 'Bowler',
     country: 'India',
     flag: '🇮🇳',
@@ -124,7 +126,7 @@ export const players = [
   },
   {
     name: 'Eshan Malinga',
-    image: '/players/eshan-malinga.png',
+    image: photo('eshan-malinga.png'),
     role: 'Bowler',
     country: 'Sri Lanka',
     flag: '🇱🇰',
@@ -135,7 +137,7 @@ export const players = [
   },
   {
     name: 'Sakib Hussain',
-    image: '/players/sakib-hussain.png',
+    image: photo('sakib-hussain.png'),
     role: 'Bowler',
     country: 'India',
     flag: '🇮🇳',
@@ -148,7 +150,7 @@ export const players = [
   // Extra squad
   {
     name: 'Jamie Overton',
-    image: '/players/jamie-overton.png',
+    image: photo('jamie-overton.png'),
     role: 'All-rounder',
     country: 'England',
     flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
@@ -160,7 +162,7 @@ export const players = [
   },
   {
     name: 'Dhruv Jurel',
-    image: '/players/dhruv-jurel.avif',
+    image: photo('dhruv-jurel.avif'),
     role: 'Wicketkeeper',
     country: 'India',
     flag: '🇮🇳',
@@ -172,7 +174,7 @@ export const players = [
   },
   {
     name: 'Angkrish Raghuvanshi',
-    image: '/players/angkrish-raghuvanshi.png',
+    image: photo('angkrish-raghuvanshi.png'),
     role: 'Batter',
     country: 'India',
     flag: '🇮🇳',
@@ -184,7 +186,7 @@ export const players = [
   },
   {
     name: 'Kartik Sharma',
-    image: '/players/kartik-sharma.png',
+    image: photo('kartik-sharma.png'),
     role: 'Wicketkeeper',
     country: 'India',
     flag: '🇮🇳',
@@ -196,7 +198,7 @@ export const players = [
   },
   {
     name: 'Ayush Badoni',
-    image: '/players/ayush-badoni.png',
+    image: photo('ayush-badoni.png'),
     role: 'Batter',
     country: 'India',
     flag: '🇮🇳',

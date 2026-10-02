@@ -105,7 +105,7 @@ export default function App() {
       {/* 2016 title banner */}
       <section className="relative isolate overflow-hidden border-t border-white/10">
         <img
-          src="/srh-champions-2016.jpg"
+          src={`${import.meta.env.BASE_URL}srh-champions-2016.jpg`}
           alt="Sunrisers Hyderabad squad celebrating with the IPL trophy in 2016"
           loading="lazy"
           className="absolute inset-0 -z-10 h-full w-full object-cover object-[50%_35%]"
