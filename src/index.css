@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", Impact, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --color-ink: #0a0a0d;
+  --color-coal: #131318;
+  --color-ember: #e3361b;
+  --color-srh: #f26522;
+  --color-sun: #ff9a1f;
+  --color-gold: #ffc23d;
+
+  --animate-rise: rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-spin-slow: spin 60s linear infinite;
+  --animate-glow: glow 6s ease-in-out infinite;
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-pop: pop 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes glow {
+    0%, 100% { opacity: 0.75; transform: translateX(-50%) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.06); }
+  }
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: scale(0.92) translateY(16px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: #f5f5f4;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-srh);
+  color: #000;
+}
+
+/* Fine film grain over everything for a printed-poster feel */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-sunrise {
+  background: linear-gradient(180deg, var(--color-gold) 0%, var(--color-sun) 45%, var(--color-ember) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(242 101 34 / 0.45);
+}
+
+/* Conic sun rays behind the hero sun */
+.rays {
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgb(255 154 31 / 0.14) 0deg 4deg,
+    transparent 4deg 12deg
+  );
+  mask-image: radial-gradient(circle, #000 20%, transparent 70%);
+}
+
+/* Card: gradient border + spotlight that follows the cursor */
+.card {
+  --mx: 50%;
+  --my: 50%;
+  background:
+    radial-gradient(420px circle at var(--mx) var(--my), rgb(242 101 34 / 0.16), transparent 45%),
+    linear-gradient(160deg, #1a1a21 0%, #101014 100%);
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background:
+    radial-gradient(300px circle at var(--mx) var(--my), var(--color-gold), transparent 60%),
+    linear-gradient(160deg, rgb(255 255 255 / 0.12), rgb(255 255 255 / 0.03));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.card:hover {
+  box-shadow: 0 30px 60px -20px rgb(242 101 34 / 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
